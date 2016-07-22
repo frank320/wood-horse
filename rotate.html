@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .demo {
+            width: 200px;
+            height: 200px;
+            border: 2px solid silver;
+            border-radius: 50%;
+            position: relative;
+            animation: clock 6s linear infinite;
+        }
+
+        .wrap {
+            position: absolute;
+            left: 500px;
+            top: 100px;
+            animation: clock 10s linear infinite;
+        }
+
+        .wrap:hover .demo {
+            animation-play-state: paused;
+        }
+
+        .wrap:hover .inner {
+            animation-play-state: paused;
+        }
+
+        .demo div {
+            width: 50px;
+            height: 50px;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 50%;
+
+        }
+
+        .demo > div {
+            position: absolute;
+            animation: counterclock 10s linear infinite;
+        }
+
+        .demo .inner {
+            animation: counterclock 6s linear infinite;
+        }
+
+        .demo > div:nth-child(1) {
+            background-color: blue;
+            left: -25px;
+            top: 75px;
+        }
+
+        .demo > div:nth-child(2) {
+            background-color: red;
+            left: 75px;
+            top: -25px;
+        }
+
+        .demo > div:nth-child(3) {
+            background-color: pink;
+            left: 175px;
+            top: 75px;
+        }
+
+        .demo > div:nth-child(4) {
+            background-color: green;
+            left: 75px;
+            top: 175px;
+        }
+
+        @keyframes clock {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes counterclock {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-360deg);
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="demo">
+        <div>
+            <div class="inner">jQuery</div>
+        </div>
+        <div>
+            <div class="inner">Node.js</div>
+        </div>
+        <div>
+            <div class="inner">HTML5</div>
+        </div>
+        <div>
+            <div class="inner">CSS3</div>
+        </div>
+    </div>
+</div>
+<script>
+    function extend(obj1, obj2) {
+        for (var k in obj2) {
+            obj1[k] = obj2[k];
+        }
+    }
+    function Person() {
+    }
+    extend(Person.prototype, {
+        sayHi: function () {
+            console.log('hello world !');
+        }
+    });
+    var person = new Person();
+    person.sayHi();
+</script>
+</body>
+</html>
